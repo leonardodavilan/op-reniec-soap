@@ -1,4 +1,4 @@
-package pe.joedayz.servidorws;
+package pe.com.prima.opreniecsoap.config;
 
 import javax.xml.ws.Endpoint;
 import javax.xml.ws.soap.SOAPBinding;
@@ -8,7 +8,7 @@ import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pe.joedayz.servidorws.impl.SumServiceImpl;
+import pe.com.prima.opreniecsoap.service.impl.ReniecServiceImpl;
 
 @Configuration
 public class ApplicationConfig {
@@ -17,7 +17,7 @@ public class ApplicationConfig {
   private Bus bus;
 
   @Bean
-  public Endpoint endpoint(SumServiceImpl sumServiceImpl){
+  public Endpoint endpoint(ReniecServiceImpl sumServiceImpl){
     Endpoint endpoint = new EndpointImpl(bus, sumServiceImpl, SOAPBinding.SOAP12HTTP_BINDING);
     endpoint.publish("/soap/SumService");
     return endpoint;

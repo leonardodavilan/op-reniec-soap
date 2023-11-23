@@ -9,9 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pe.joedayz</groupId>
-	<artifactId>servidorws</artifactId>
+	<artifactId>op-reniec-soap</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>servidorws</name>
+	<packaging>war</packaging>
+	<name>op-reniec-soap</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

@@ -1,4 +1,4 @@
-package pe.joedayz.servidorws.impl;
+package pe.com.prima.opreniecsoap.service.impl;
 
 import org.apache.cxf.annotations.SchemaValidation;
 import org.apache.cxf.annotations.SchemaValidation.SchemaValidationType;
@@ -8,7 +8,7 @@ import org.tempuri.*;
 
 @Service
 @SchemaValidation(type = SchemaValidationType.REQUEST)
-public class SumServiceImpl implements ConsultaReniecSoap {
+public class ReniecServiceImpl implements ConsultaReniecSoap {
 
   @Override
   public RespNombres consultaXNombres(String apellidoPaterno, String apellidoMaterno, String nombres, String inicio, int cant, DatosAuditoria datosAuditoria) {
