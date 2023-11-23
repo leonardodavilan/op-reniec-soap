@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+                  xmlns:s="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  targetNamespace="http://tempuri.org/"
+                  xmlns:tns="http://tempuri.org/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:include schemaLocation="schema/schema.xsd"></s:include>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarDNISoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDNI"/>
+  </wsdl:message>
+  <wsdl:message name="ConsultarDNISoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDNIResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ConsultaXNombresSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaXNombres"/>
+  </wsdl:message>
+  <wsdl:message name="ConsultaXNombresSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaXNombresResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ConsultaReniecSoap">
+    <wsdl:operation name="ConsultarDNI">
+      <wsdl:input message="tns:ConsultarDNISoapIn"/>
+      <wsdl:output message="tns:ConsultarDNISoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaXNombres">
+      <wsdl:input message="tns:ConsultaXNombresSoapIn"/>
+      <wsdl:output message="tns:ConsultaXNombresSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultaReniecSoap" type="tns:ConsultaReniecSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConsultarDNI">
+      <soap:operation soapAction="http://tempuri.org/ConsultarDNI" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaXNombres">
+      <soap:operation soapAction="http://tempuri.org/ConsultaXNombres" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConsultaReniecSoap12" type="tns:ConsultaReniecSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConsultarDNI">
+      <soap12:operation soapAction="http://tempuri.org/ConsultarDNI" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaXNombres">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaXNombres" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultaReniec">
+    <wsdl:port name="ConsultaReniecSoap" binding="tns:ConsultaReniecSoap">
+      <soap:address location="http://localhost:8080/services/soap/SumService"/>
+    </wsdl:port>
+    <wsdl:port name="ConsultaReniecSoap12" binding="tns:ConsultaReniecSoap12">
+      <soap12:address location="http://localhost:8080/services/soap/SumService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
