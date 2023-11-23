@@ -1,4 +1,4 @@
-package pe.com.prima.opreniecsoap.config;
+package pe.com.prima.opreniecsoap.config.soap;
 
 import javax.xml.ws.Endpoint;
 import javax.xml.ws.soap.SOAPBinding;
@@ -8,7 +8,7 @@ import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pe.com.prima.opreniecsoap.service.impl.ReniecServiceImpl;
+import pe.com.prima.opreniecsoap.business.impl.ReniecServiceImpl;
 
 @Configuration
 public class ApplicationConfig {

@@ -1,4 +1,4 @@
-package pe.com.prima.opreniecsoap.service.impl;
+package pe.com.prima.opreniecsoap.business.impl;
 
 import org.apache.cxf.annotations.SchemaValidation;
 import org.apache.cxf.annotations.SchemaValidation.SchemaValidationType;
