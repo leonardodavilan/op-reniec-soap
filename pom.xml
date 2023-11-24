@@ -8,9 +8,9 @@
 		<version>2.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>pe.joedayz</groupId>
+	<groupId>pe.com.prima</groupId>
 	<artifactId>op-reniec-soap</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>war</packaging>
 	<name>op-reniec-soap</name>
 	<description>Demo project for Spring Boot</description>
