@@ -6,6 +6,7 @@ import org.apache.cxf.annotations.SchemaValidation;
 import org.apache.cxf.annotations.SchemaValidation.SchemaValidationType;
 import org.springframework.stereotype.Service;
 import org.tempuri.*;
+import pe.com.prima.opreniecsoap.mapper.ConsultaXNombresResponseMapper;
 import pe.com.prima.opreniecsoap.mapper.ConsultarDNIResponseMapper;
 import pe.com.prima.opreniecsoap.proxy.OpReniecClient;
 import pe.com.prima.opreniecsoap.proxy.OpReniecRestService;
@@ -19,11 +20,26 @@ public class ReniecServiceImpl implements ConsultaReniecSoap {
 
   private final OpReniecRestService opReniecRestService;
   private final ConsultarDNIResponseMapper consultarDNIResponseMapper;
+  private final ConsultaXNombresResponseMapper consultaXNombresResponseMapper;
 
 
   @Override
   public RespNombres consultaXNombres(String apellidoPaterno, String apellidoMaterno, String nombres, String inicio, int cant, DatosAuditoria datosAuditoria) {
-    return null;
+    log.info("[ReniecServiceClient] - consultaXNombres {} {} {}",new Object[] { nombres, apellidoPaterno, apellidoMaterno });
+    try {
+      OpReniecClient.ByNombreRequest request = new OpReniecClient.ByNombreRequest();
+      request.setNombres(nombres);
+      request.setApellidoPaterno(apellidoPaterno);
+      request.setApellidoMaterno(apellidoMaterno);
+      request.setInicio(inicio);
+      request.setCant(cant);
+      request.setDatosAuditoria(toModel(datosAuditoria));
+      OpReniecClient.ByNombreResponse respNombres = this.opReniecRestService.consultarNombres(request);
+      return this.consultaXNombresResponseMapper.toSoapEntity(respNombres);
+    } catch (Exception ex) {
+      log.error(ex.getMessage());
+      throw ex;
+    }
   }
 
   @Override
