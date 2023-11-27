@@ -80,10 +80,10 @@
   </wsdl:binding>
   <wsdl:service name="ConsultaReniec">
     <wsdl:port name="ConsultaReniecSoap" binding="tns:ConsultaReniecSoap">
-      <soap:address location="http://localhost:8080/services/soap/SumService"/>
+      <soap:address location="http://localhost:8080/ReniecSoap"/>
     </wsdl:port>
     <wsdl:port name="ConsultaReniecSoap12" binding="tns:ConsultaReniecSoap12">
-      <soap12:address location="http://localhost:8080/services/soap/SumService"/>
+      <soap12:address location="http://localhost:8080/ReniecSoap"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
